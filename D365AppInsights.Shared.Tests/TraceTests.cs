@@ -1,9 +1,9 @@
-﻿using FakeXrmEasy;
+﻿using D365AppInsights.Shared.Tests.Common;
+using FakeXrmEasy;
 using JLattimer.D365AppInsights;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Xrm.Sdk;
 using System;
-using D365AppInsights.Shared.Tests.Common;
 
 namespace D365AppInsights.Shared.Tests
 {

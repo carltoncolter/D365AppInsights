@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 
 namespace D365AppInsights.Workflow.Tests
-{   
+{
     [TestClass]
     public class LogEventTests
     {

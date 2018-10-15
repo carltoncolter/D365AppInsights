@@ -14,7 +14,7 @@ namespace D365AppInsights.Shared.Tests.Common
 
             if (aiInstrumentationKey == "YOUR AI INSTRUMENTATION KEY")
                 throw new Exception(
-                    "Enter your Application Insights instrumention key in D365AppInsights.Shared.Tests.Common.Configs");
+                    "Enter your Application Insights instrumentation key in D365AppInsights.Shared.Tests.Common.Configs");
 
             return new AiSetup
             {

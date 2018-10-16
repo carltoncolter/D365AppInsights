@@ -123,7 +123,7 @@ namespace D365AppInsights.Action.Tests
             context.ExecutePluginWithConfigurations<LogEvent>(xrmFakedPluginExecution, unsecureConfig, null);
 
             Assert.IsFalse((bool)xrmFakedPluginExecution.OutputParameters["logsuccess"]);
-            Assert.IsTrue(xrmFakedPluginExecution.OutputParameters["errormessage"].ToString() == "Measurement name cannot exceed 150 characters");
+            Assert.IsTrue(xrmFakedPluginExecution.OutputParameters["errormessage"].ToString() == "Invalid Measurement: name cannot exceed 150 characters");
         }
 
         private static ParameterCollection GetInputParameters()

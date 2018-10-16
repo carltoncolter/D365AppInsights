@@ -60,7 +60,7 @@ namespace D365AppInsights.Action.Tests
             context.ExecutePluginWithConfigurations<LogTrace>(xrmFakedPluginExecution, unsecureConfig, null);
 
             Assert.IsFalse((bool)xrmFakedPluginExecution.OutputParameters["logsuccess"]);
-            Assert.IsTrue(xrmFakedPluginExecution.OutputParameters["errormessage"].ToString() == "Severity cannot be null");
+            Assert.IsTrue(xrmFakedPluginExecution.OutputParameters["errormessage"].ToString() == "Invalid Severity: cannot be null");
         }
 
         [TestMethod]
@@ -82,7 +82,7 @@ namespace D365AppInsights.Action.Tests
             context.ExecutePluginWithConfigurations<LogTrace>(xrmFakedPluginExecution, unsecureConfig, null);
 
             Assert.IsFalse((bool)xrmFakedPluginExecution.OutputParameters["logsuccess"]);
-            Assert.IsTrue(xrmFakedPluginExecution.OutputParameters["errormessage"].ToString() == "Severity valid values: Verbose, Information, Warning, Error, Critical");
+            Assert.IsTrue(xrmFakedPluginExecution.OutputParameters["errormessage"].ToString() == "Invalid Severity: valid values: Verbose, Information, Warning, Error, Critical");
         }
 
         private static ParameterCollection GetInputParameters()

@@ -24,6 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\AiMeasurement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\AiMetric.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\AiParsedStack.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\AiPluginProperties.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\AiProperties.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\AiSetup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\AiTags.cs" />

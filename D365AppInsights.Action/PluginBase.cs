@@ -24,6 +24,8 @@ using System.Text;
 
 namespace D365AppInsights.Action
 {
+    using JLattimer.D365AppInsights;
+
     /// <inheritdoc />
     /// <summary>
     /// Base class for all plug-in classes.
@@ -155,6 +157,13 @@ namespace D365AppInsights.Action
             // Construct the local plug-in context.
             LocalPluginContext localContext = new LocalPluginContext(serviceProvider);
 
+            if (localContext.PluginExecutionContext.PrimaryEntityName.StartsWith("sdk")
+                || localContext.PluginExecutionContext.PrimaryEntityName.Contains("tracelog")
+                || localContext.PluginExecutionContext.PrimaryEntityName.Contains("plugin"))
+            {
+                return;
+            }
+
             localContext.Trace(string.Format(CultureInfo.InvariantCulture, "Entered {0}.Execute()", ChildClassName));
 
 #if DEBUG
@@ -196,6 +205,7 @@ namespace D365AppInsights.Action
 
         private static void TraceParameters(bool input, LocalPluginContext localContext)
         {
+            
             ParameterCollection parameters = input
                 ? localContext.PluginExecutionContext.InputParameters
                 : localContext.PluginExecutionContext.OutputParameters;
@@ -214,49 +224,8 @@ namespace D365AppInsights.Action
                     string typeFullnameString = typeFullname != null ? typeFullname.ToString() : "NULL";
                     sb.Append($"{parameterType} Parameter({typeFullnameString}): {parameter.Key}: ");
 
-                    switch (typeFullname)
-                    {
-                        case null:
-                            sb.Append("NULL");
-                            break;
-                        case "System.String":
-                        case "System.Decimal":
-                        case "System.Double":
-                        case "System.Int32":
-                        case "System.Boolean":
-                        case "System.Single":
-                            sb.Append(parameter.Value);
-                            break;
-                        case "System.DateTime":
-                            sb.Append(((DateTime)parameter.Value).ToString("yyyy-MM-dd HH:mm:ss \"GMT\"zzz"));
-                            break;
-                        case "Microsoft.Xrm.Sdk.EntityReference":
-                            var entityReference = (EntityReference)parameter.Value;
-                            sb.Append($"Id: {entityReference.Id}, LogicalName: {entityReference.LogicalName}");
-                            break;
-                        case "Microsoft.Xrm.Sdk.Entity":
-                            var entity = (Entity)parameter.Value;
-                            sb.Append($"Id: {entity.Id}, LogicalName: {entity.LogicalName}");
-                            break;
-                        case "Microsoft.Xrm.Sdk.EntityCollection":
-                            var entityCollection = (EntityCollection)parameter.Value;
-                            foreach (var e in entityCollection.Entities)
-                            {
-                                sb.Append(Environment.NewLine);
-                                sb.Append($"Id: {e.Id}, LogicalName: {e.LogicalName}");
-                            }
-                            break;
-                        case "Microsoft.Xrm.Sdk.OptionSetValue":
-                            sb.Append(((OptionSetValue)parameter.Value).Value);
-                            break;
-                        case "Microsoft.Xrm.Sdk.Money":
-                            sb.Append(((Money)parameter.Value).Value.ToString(CultureInfo.CurrentCulture));
-                            break;
-                        default:
-                            sb.Append($"Undefined Type - {typeFullname}");
-                            break;
-                    }
-
+                    AiLogger.AppendValue(localContext.OrganizationService, typeFullname, sb, parameter.Value);
+                    
                     localContext.TracingService.Trace(sb.ToString());
                 }
             }

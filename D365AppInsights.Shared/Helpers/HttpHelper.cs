@@ -2,7 +2,7 @@
 
 namespace JLattimer.D365AppInsights
 {
-    public class HttpHelper
+    public static class HttpHelper
     {
         public static HttpClient GetHttpClient()
         {

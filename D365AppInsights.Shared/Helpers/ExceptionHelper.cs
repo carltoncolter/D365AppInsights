@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace JLattimer.D365AppInsights
 {
-    public class ExceptionHelper
+    public static class ExceptionHelper
     {
         public static List<AiParsedStack> GetParsedStacked(Exception e)
         {
@@ -14,11 +14,10 @@ namespace JLattimer.D365AppInsights
             List<AiParsedStack> parsedStacks = new List<AiParsedStack>();
 
             Exception currentException = e;
-            while (currentException != null)
-            {
-                AiParsedStack parsedStack = ParseStackTrace(e);
-                parsedStacks.Add(parsedStack);
 
+            while (currentException!=null)
+            {
+                parsedStacks.Add(ParseStackTrace(currentException));
                 currentException = currentException.InnerException;
             }
 

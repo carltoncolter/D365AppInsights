@@ -2,9 +2,9 @@
 
 namespace JLattimer.D365AppInsights
 {
-    public class EnumHelper
+    public static class EnumHelper
     {
-        public static T ParseEnum<T>(object o)
+        public static T ParseEnum<T>(this object o)
         {
             try
             {

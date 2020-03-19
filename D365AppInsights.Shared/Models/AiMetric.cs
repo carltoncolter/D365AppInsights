@@ -9,22 +9,22 @@ namespace JLattimer.D365AppInsights
         public string Name { get; set; }
 
         [DataMember(Name = "value")]
-        public int Value { get; set; }
+        public double Value { get; set; }
 
         [DataMember(Name = "count")]
-        public int Count { get; set; }
+        public double Count { get; set; }
 
         [DataMember(Name = "min")]
-        public int Min { get; set; }
+        public double Min { get; set; }
 
         [DataMember(Name = "max")]
-        public int Max { get; set; }
+        public double Max { get; set; }
 
         [DataMember(Name = "stdDev")]
-        public int StdDev { get; set; }
+        public double StdDev { get; set; }
 
         [DataMember(Name = "kind")]
-        public int Kind { get; set; }
+        public double Kind { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AiMetric"/> class.
@@ -35,7 +35,7 @@ namespace JLattimer.D365AppInsights
         /// <param name="min">The minimum value of metrics being logged (default = value).</param>
         /// <param name="max">The maximum value of metrics being logged (default = value).</param>
         /// <param name="stdDev">The standard deviantion of metrics being logged (default = 0).</param>
-        public AiMetric(string name, int value, int? count, int? min, int? max, int? stdDev)
+        public AiMetric(string name, double value, double? count, double? min, double? max, double? stdDev)
         {
             Name = name.Length > 512
                 ? name.Substring(0, 511)

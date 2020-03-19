@@ -1,5 +1,5 @@
-﻿using JLattimer.D365AppInsights;
-using System;
+﻿using System;
+using JLattimer.D365AppInsights;
 
 namespace D365AppInsights.Shared.Tests.Common
 {

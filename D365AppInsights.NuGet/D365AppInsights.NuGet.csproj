@@ -94,6 +94,9 @@
     <Compile Include="..\D365AppInsights.Shared\Models\AiProperties.cs">
       <Link>content\D365AppInsights\Models\AiProperties.cs</Link>
     </Compile>
+    <Compile Include="..\D365AppInsights.Shared\Models\AiPluginProperties.cs">
+      <Link>content\D365AppInsights\Models\AiPluginProperties.cs</Link>
+    </Compile>
     <Compile Include="..\D365AppInsights.Shared\Models\AiSetup.cs">
       <Link>content\D365AppInsights\Models\AiSetup.cs</Link>
     </Compile>

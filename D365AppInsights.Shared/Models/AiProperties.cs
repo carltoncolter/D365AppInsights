@@ -1,34 +1,37 @@
+using System;
 using System.Runtime.Serialization;
 
 namespace JLattimer.D365AppInsights
 {
     [DataContract]
-    public class AiProperties
+    public class AiProperties : AiPluginProperties
     {
-        //Define additional properties as needed
-        [DataMember(Name = "impersonatingUserId")]
-        public string ImpersonatingUserId { get; set; }
+        //Define additional properties as needed - The commented out ones are inherited from AiPluginProperties
+        //[DataMember(Name = "operationId")]
+        //public string OperationId { get; set; }
+        //[DataMember(Name = "impersonatingUserId")]
+        //public string ImpersonatingUserId { get; set; }
 
-        [DataMember(Name = "entityId")]
-        public string EntityId { get; set; }
+        //[DataMember(Name = "entityId")]
+        //public string EntityId { get; set; }
 
-        [DataMember(Name = "entityName")]
-        public string EntityName { get; set; }
+        //[DataMember(Name = "entityName")]
+        //public string EntityName { get; set; }
 
-        [DataMember(Name = "correlationId")]
-        public string CorrelationId { get; set; }
+        //[DataMember(Name = "correlationId")]
+        //public string CorrelationId { get; set; }
 
-        [DataMember(Name = "message")]
-        public string Message { get; set; }
+        //[DataMember(Name = "message")]
+        //public string Message { get; set; }
 
-        [DataMember(Name = "stage")]
-        public string Stage { get; set; }
+        //[DataMember(Name = "stage")]
+        //public string Stage { get; set; }
 
-        [DataMember(Name = "mode")]
-        public string Mode { get; set; }
+        //[DataMember(Name = "mode")]
+        //public string Mode { get; set; }
 
-        [DataMember(Name = "depth")]
-        public int Depth { get; set; }
+        //[DataMember(Name = "depth")]
+        //public int Depth { get; set; }
 
         [DataMember(Name = "workflowCategory")]
         public string WorkflowCategory { get; set; }
@@ -56,6 +59,18 @@ namespace JLattimer.D365AppInsights
 
         [DataMember(Name = "outputParameters")]
         public string OutputParameters { get; set; }
+
+        [DataMember(Name= "duration")]
+        public string Duration { get; set; }
+
+        [DataMember(Name="history")]
+        public AiPluginProperties[] History { get; internal set; }
+
+        [DataMember(Name="organizationId")]
+        public string OrganizationId { get; set; }
+
+        //[DataMember(Name = "parentCorrelationId")]
+        //public string ParentCorrelationId { get; set; }
 
         public static string GetStageName(int stage)
         {

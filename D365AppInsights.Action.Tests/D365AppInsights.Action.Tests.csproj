@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>D365AppInsights.Action.Tests</RootNamespace>
     <AssemblyName>D365AppInsights.Action.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
@@ -19,6 +19,7 @@
     <TestProjectType>UnitTest</TestProjectType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -133,7 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\D365AppInsights.Action\D365AppInsights.Action.csproj">
-      <Project>{9a5277e5-7184-4726-91d5-9b201f1811bf}</Project>
+      <Project>{9A5277E5-7184-4726-91D5-9B201F1811BF}</Project>
       <Name>D365AppInsights.Action</Name>
     </ProjectReference>
   </ItemGroup>
